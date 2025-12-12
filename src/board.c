@@ -453,7 +453,7 @@ static int cmp_level_names(const void *a, const void *b) {
 
 
 int init_levels(const char *level_dir) {
-    g_num_levels    = 0;
+    g_num_levels = 0;
     g_current_level = 0;
 
     // guarda a diretoria base
@@ -479,7 +479,7 @@ int init_levels(const char *level_dir) {
     while ((ent = readdir(dir)) != NULL) {
         const char *name = ent->d_name;
 
-        // ignorar "." e ".."
+        // ignora "." e ".."
         if (strcmp(name, ".") == 0 || strcmp(name, "..") == 0)
             continue;
 
@@ -489,7 +489,7 @@ int init_levels(const char *level_dir) {
             continue;
 
         // constrói caminho completo: "<dir>/<ficheiro>"
-        char fullpath[MAX_FILENAME + 2];
+        char fullpath[MAX_FILENAME + 2];    // +2 para aceitar o /0 no fullpath (256 + 2)
         snprintf(fullpath, sizeof(fullpath), "%s/%s", level_dir, name);
 
         // aumenta o array dinamicamente
