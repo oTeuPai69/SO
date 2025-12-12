@@ -489,7 +489,7 @@ int init_levels(const char *level_dir) {
             continue;
 
         // constrói caminho completo: "<dir>/<ficheiro>"
-        char fullpath[MAX_FILENAME];
+        char fullpath[MAX_FILENAME + 2];
         snprintf(fullpath, sizeof(fullpath), "%s/%s", level_dir, name);
 
         // aumenta o array dinamicamente
